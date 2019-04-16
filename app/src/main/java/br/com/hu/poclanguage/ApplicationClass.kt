@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
+import java.util.*
 
 class ApplicationClass: Application() {
 
@@ -13,13 +14,8 @@ class ApplicationClass: Application() {
     }
 
     override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(LocaleHelper.setLocale(base))
+        super.attachBaseContext(LocaleHelper.onAttach(base, Locale.getDefault().language))
     }
 
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        LocaleHelper.setLocale(this)
-    }
 
 }

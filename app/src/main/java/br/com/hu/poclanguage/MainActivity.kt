@@ -35,17 +35,17 @@ class MainActivity : AppCompatActivity() {
 
 
         portugues.setOnClickListener {
-            LocaleHelper.setNewLocale(this, LocaleHelper.mPortugueseFlag)
+            LocaleHelper.setLocale(this, LocaleHelper.mPortugueseFlag)
             recreate()
         }
 
         ingles.setOnClickListener {
-            LocaleHelper.setNewLocale(this, LocaleHelper.mEnglishFlag)
+            LocaleHelper.setLocale(this, LocaleHelper.mEnglishFlag)
             recreate()
         }
 
         espanhol.setOnClickListener {
-            LocaleHelper.setNewLocale(this, LocaleHelper.mSpanishFlag)
+            LocaleHelper.setLocale(this, LocaleHelper.mSpanishFlag)
             recreate()
         }
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context?) {
-        super.attachBaseContext(LocaleHelper.setLocale(newBase))
+        super.attachBaseContext(LocaleHelper.onAttach(newBase!!))
     }
 
 }
